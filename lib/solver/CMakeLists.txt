@@ -1,7 +1,5 @@
 add_library(genetic_solver_lib genetic.cc)
 add_library(gaussseidel_solver_lib gaussseidel.cc)
-add_library(perturbation_solver_lib perturbation.cc)
-
 add_library(newton_solver_lib newtonraphson.cc)
 
 include(FetchContent)

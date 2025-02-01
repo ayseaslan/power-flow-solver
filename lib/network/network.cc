@@ -6,7 +6,6 @@
 #include "solver/gaussseidel.h"
 #include "solver/genetic.h"
 #include "solver/newtonraphson.h"
-#include "solver/perturbation.h"
 
 namespace pf_solver {
 
@@ -78,22 +77,6 @@ void Network::SolveGaussSeidel(int max_iterations, double tolerance) {
     bus_solutions_.push_back(bus_solution);
   }
   power_mismatch_gauss_seidel_ = solver.GetPowerMismatchError();
-}
-
-/**
- * @brief Solve the power flow problem with Gauss-Seidel perturbation method
- * and fills bus solutions.
- */
-void Network::SolvePerturbation(int max_iterations, double perturbation_rate,
-                                double tolerance) {
-  perturbation_pf_solver::PerturbationSolver solver(
-      *this, max_iterations, perturbation_rate, tolerance);
-  solver.Solve();
-  const auto bus_solutions = solver.GetBusSolutions();
-  for (const auto& bus_solution : bus_solutions) {
-    bus_solutions_.push_back(bus_solution);
-  }
-  power_mismatch_perturbation_ = solver.GetPowerMismatchError();
 }
 
 /**

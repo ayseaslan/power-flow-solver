@@ -41,13 +41,6 @@ class Network {
   void SolveGaussSeidel(int max_iterations, double tolerance);
 
   /**
-   * @brief Solve the power flow problem with Gauss-Seidel perturbation method
-   * and fills bus solutions.
-   */
-  void SolvePerturbation(int max_iterations, double perturbation_rate,
-                         double tolerance);
-
-  /**
    * @brief Solve the power flow problem with Newton-Raphson method and fills
    * bus solutions.
    */
@@ -71,14 +64,6 @@ class Network {
    * @return The error in the power flow solution.
    */
   double GetPowerMismatchGenetic() const { return power_mismatch_genetic_; }
-
-  /**
-   * @brief Get the error in the power flow solution with Perturbation method.
-   * @return The error in the power flow solution.
-   */
-  double GetPowerMismatchPerturbation() const {
-    return power_mismatch_perturbation_;
-  }
 
   /**
    * @brief Get the error in the power flow solution with Newton-Raphson method.
@@ -122,8 +107,6 @@ class Network {
                                         ///< solution with GaussSeidel method.
   double power_mismatch_genetic_;  ///< The error in the power flow solution
                                    ///< with Genetic method.
-  double power_mismatch_perturbation_;  ///< The error in the power flow
-  ///< solution with Perturbation method.
   double power_mismatch_newtonraphson_;  ///< The error in the power flow
 };
 }  // namespace pf_solver

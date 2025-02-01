@@ -194,11 +194,8 @@ void NewtonRaphsonSolver::Solve() {
   int iter = 0;
   while (iter < max_iterations_) {
     if (SolveWithJacobian() == 1) {
-      std::cout << "Converged after " << iter << " iterations." << std::endl;
       break;
     }
-    std::cout << "Iteration: " << iter
-              << ", Total Power Mismatch: " << power_mismatch_ << std::endl;
     iter++;
   }
 }

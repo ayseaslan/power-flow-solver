@@ -335,10 +335,7 @@ void GeneticSolver::Solve() {
     CalculateFitness();
     SortPopulation();
     SelectFittest();
-    std::cout << "Generation: " << i
-              << ", Fittest Fitness: " << fittest_fitness_ << std::endl;
     if (fittest_fitness_ <= tolerance_) {
-      std::cout << "Solution found in generation: " << i << std::endl;
       break;
     } else {
       std::vector<ChromosomeVoltage> new_population;

@@ -117,13 +117,8 @@ void GaussSeidelSolver::Solve() {
     total_power_mismatch =
         sqrt(total_power_mismatch / num_p_q_vals);  // rmse error based mismatch
     power_mismatch_ = total_power_mismatch;
-    // Log the power mismatch
-    std::cout << "Iteration: " << i
-              << ", Total Power Mismatch: " << total_power_mismatch
-              << std::endl;
     // Stop if the power mismatch is below the tolerance
     if (power_mismatch_ < tolerance_) {
-      std::cout << "Converged after " << i << " iterations." << std::endl;
       break;
     }
   }
